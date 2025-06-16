@@ -22,3 +22,10 @@ def transcript():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Use Render's assigned port
     app.run(host="0.0.0.0", port=port, debug=True)
+
+    proxies = {
+        "http": "http://your-proxy-url:port",
+        "https": "http://your-proxy-url:port"
+    }
+
+transcript = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
